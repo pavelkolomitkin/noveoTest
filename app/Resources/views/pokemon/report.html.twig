@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Pokemon</th>
+                            <th>Type</th>
+                            <th>Description</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+                    {% for pokemon in items %}
+                        <tr>
+                            <td>
+                                {{ pokemon.id }}
+                            </td>
+                            <td>
+                                {{ pokemon.name }}
+                            </td>
+                            <td>
+                                {{ pokemon.type }}
+                            </td>
+                            <td>
+                                {{ pokemon.description }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div>
+    </div>
+{% endblock %}
+

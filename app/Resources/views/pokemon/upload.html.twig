@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="wrapper">
+        <div id="container">
+
+            {{ form_start(form, {'method': 'POST'}) }}
+                {{ form_widget(form) }}
+
+                <input type="submit" value="upload" />
+
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}
+
