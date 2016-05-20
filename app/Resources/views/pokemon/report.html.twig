@@ -9,6 +9,7 @@
                         <tr>
                             <th>Id</th>
                             <th>Pokemon</th>
+                            <th>Gender</th>
                             <th>Type</th>
                             <th>Description</th>
                         </tr>
@@ -16,25 +17,45 @@
                     </thead>
 
                     <tbody>
+
+                    {% set gender = 'some' %}
                     {% for pokemon in items %}
-                        <tr>
-                            <td>
-                                {{ pokemon.id }}
-                            </td>
-                            <td>
-                                {{ pokemon.name }}
-                            </td>
-                            <td>
-                                {{ pokemon.type }}
-                            </td>
-                            <td>
-                                {{ pokemon.description }}
-                            </td>
-                        </tr>
+                        {% if pokemon.gender != gender %}
+
+                            {% set gender = pokemon.gender %}
+                            <tr>
+                                <td>
+                                    {{ pokemon.id }}
+                                </td>
+                                <td>
+                                    {{ pokemon.name }}
+                                </td>
+                                <td>
+                                    {% if gender %}
+                                        {{ gender }}
+                                    {% else %}
+                                        unknown
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    {{ pokemon.type }}
+                                </td>
+                                <td>
+                                    {{ pokemon.description }}
+                                </td>
+                            </tr>
+
+                        {% endif %}
+
+
                     {% endfor %}
                     </tbody>
                 </table>
         </div>
+    </div>
+
+    <div>
+        <a href="{{ path('pokemon_upload') }}">Upload new</a>
     </div>
 {% endblock %}
 

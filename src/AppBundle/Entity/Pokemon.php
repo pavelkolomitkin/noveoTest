@@ -12,6 +12,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Pokemon
 {
+    const GENDER_MALE = 'Mâle';
+    const GENDER_FAMALE = 'Female';
+
     /**
      * @var int
      *
@@ -41,6 +44,12 @@ class Pokemon
      * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
+
+    /**
+     * @var string
+     * @ORM\Column(name="gender", type="string", length=255)
+     */
+    private $gender;
 
 
     /**
@@ -123,6 +132,18 @@ class Pokemon
     public function getType()
     {
         return $this->type;
+    }
+
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
     }
 }
 

@@ -35,14 +35,20 @@ class PokemonFileProcessor
                 {
                     $pokemon = new Pokemon();
 
+                    $genderValue = trim($data[1]);
+                    if (!in_array($genderValue, [Pokemon::GENDER_MALE, Pokemon::GENDER_FAMALE]))
+                    {
+                        $genderValue = '';
+                    }
+
                     $pokemon
                         ->setName($data[0])
-                        ->setType($data[1])
-                        ->setDescription($data[2]);
+                        ->setGender($genderValue)
+                        ->setType($data[2])
+                        ->setDescription($data[3]);
 
                     $this->entityManager->persist($pokemon);
                 }
-
 
                 $rowNumber++;
             }

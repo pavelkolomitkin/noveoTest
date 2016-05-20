@@ -53,7 +53,7 @@ class PokemonController extends Controller
      */
     public function reportAction(Request $request)
     {
-        $items = $this->getDoctrine()->getRepository('AppBundle:Pokemon')->findAll();
+        $items = $this->getDoctrine()->getRepository('AppBundle:Pokemon')->findBy([], ['gender' => 'ASC']);
 
         return $this->render('pokemon/report.html.twig', [
             'items' => $items
